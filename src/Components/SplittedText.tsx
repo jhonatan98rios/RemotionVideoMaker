@@ -2,15 +2,12 @@ import React from 'react';
 import {spring, useCurrentFrame, useVideoConfig} from 'remotion';
 
 interface ISplittedText {
+	customStyle?: object,
 	titleText: string
-	titleColor: string
-	bottom: number
-	fontSize: number
 	duration: number
-	textAlign: CanvasTextAlign
 }
 
-export const SplittedText: React.FC<ISplittedText> = ({titleText, titleColor, bottom, fontSize, duration, textAlign}) => {
+export const SplittedText: React.FC<ISplittedText> = ({titleText, duration, customStyle}) => {
 
 	const videoConfig = useVideoConfig();
 	const frame = useCurrentFrame();
@@ -31,11 +28,8 @@ export const SplittedText: React.FC<ISplittedText> = ({titleText, titleColor, bo
 			style={{
 				fontFamily: 'SF Pro Text, Helvetica, Arial',
 				fontWeight: 'bold',
-				fontSize: fontSize,
-				textAlign: textAlign,
-				position: 'absolute',
-				bottom: bottom,
 				width: '100%',
+				...customStyle
 			}}
 		>
 			{text.map((t, i) => {
@@ -43,7 +37,6 @@ export const SplittedText: React.FC<ISplittedText> = ({titleText, titleColor, bo
 					<span
 						key={t}
 						style={{
-							color: titleColor,
 							marginLeft: 10,
 							marginRight: 10,
 							transform: `scale(${scaleAnimation(i)})`,

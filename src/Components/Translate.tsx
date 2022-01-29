@@ -18,7 +18,7 @@ export const Translate: React.FC<ITranslate> = ({children, axis, from, to, custo
     fps: videoConfig.fps,
     frame: frame - 1 * 5,
     from: from,
-    to: to ? to : (videoConfig.width / 2) - 140,
+    to: 0,
     config: {
       damping: 300,
       stiffness: 100,
@@ -31,7 +31,6 @@ export const Translate: React.FC<ITranslate> = ({children, axis, from, to, custo
       style={{
         ...customStyle,
         transform: `${axis}(${transformAnimation}px)`,
-        position: 'absolute',
       }}
     >
       { children }

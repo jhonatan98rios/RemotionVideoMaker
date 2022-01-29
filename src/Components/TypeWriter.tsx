@@ -3,7 +3,13 @@ import styled, { keyframes } from 'styled-components';
 
 interface IText {
   value: string,
-  customStyle?: object
+  customStyle?: React.CSSProperties
+}
+
+interface IAfter {
+  width: any
+  height: any
+  color: any
 }
 
 
@@ -13,16 +19,17 @@ const blink = keyframes`
   }
 `;
 
-const Text = styled.p`
+const Text = styled("p")<{after: IAfter}>`
   position: relative;
 
   ::after {
     content: '';
     display: 'block';
-    width: 2px;
+    width: ${ props => props.after.width / 8 }px;
     bottom: 2px;
-    height: 14px;
-    background-color: black;
+    right: -16px;
+    height: ${ props => props.after.height }px;
+    background-color:${ props => props.after.color };
     position: absolute;
     animation: ${blink} 1s linear infinite;
   }
@@ -59,6 +66,11 @@ export const TypeWriter: React.FC<IText> = ({ value, customStyle }) => {
         textAlign: 'center',
         color: 'white',
         ...customStyle
+      }}
+      after={{
+        width: customStyle?.fontSize ? customStyle?.fontSize : 60,
+        height: customStyle?.fontSize ? customStyle?.fontSize : 60,
+        color: customStyle?.color ? customStyle?.color : 'white'
       }}
     />
 	);
