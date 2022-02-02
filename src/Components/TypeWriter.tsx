@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { useCurrentFrame, useVideoConfig } from 'remotion';
 import styled, { keyframes } from 'styled-components';
 
 interface IText {
@@ -42,6 +43,13 @@ export const TypeWriter: React.FC<IText> = ({ value, customStyle }) => {
   const count = useRef(0)
   const speed = 60;
 
+  function reset() {
+    if(textRef?.current && count.current){
+      textRef.current.innerHTML = ''
+      count.current = 0
+    }
+  }
+
   function typeWriter() {
     if (count.current < value.length) {
       if(textRef?.current){
@@ -49,10 +57,14 @@ export const TypeWriter: React.FC<IText> = ({ value, customStyle }) => {
       }
       count.current++;
       setTimeout(typeWriter, speed);
+
+    } else {
+      setTimeout(reset, 2500);
     }
   }
 
   useEffect(() => {
+    reset()
     typeWriter()
   }, [])
 

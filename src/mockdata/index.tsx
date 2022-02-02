@@ -1,19 +1,100 @@
 const data = [
   {
-    title: 'Eu sou um titulo 1',
-    subtitle: 'Eu sou um subtitulo 1',
-    footer: 'Eu sou um footer 1',
+    start: 0,
+    duration: 300, // number / 60
+    content: [
+      {
+        type: 'translate_x_from_left_to_right',
+        customStyle: {
+          marginTop: -960
+        },
+        text: 'Olá Mundo!!!'
+      },
+  
+      {
+        type: 'translate_x_from_right_to_left',
+        customStyle: {
+          marginTop: 960
+        },
+        text: 'Hello World!!'
+      },
+  
+      {
+        type: 'typewriter',
+        customStyle: {
+          fontSize: 60,
+          color: '#A5F',
+          textAlign: 'center',
+        },
+        text: 'I am a TypeWriter',
+      },
+    ]
   },
+
   {
-    title: 'Eu sou um titulo 2',
-    subtitle: 'Eu sou um subtitulo 2',
-    footer: 'Eu sou um footer 2',
+    start: 300,
+    duration: 300, // number / 60
+    content: [
+      {
+        type: 'translate_x_from_left_to_right',
+        customStyle: {
+          marginTop: -960
+        },
+        text: 'Olá Mundo 2!!!'
+      },
+  
+      {
+        type: 'translate_x_from_right_to_left',
+        customStyle: {
+          marginTop: 960
+        },
+        text: 'Hello World 2!!'
+      },
+  
+      {
+        type: 'typewriter',
+        customStyle: {
+          fontSize: 60,
+          color: '#A5F',
+          textAlign: 'center',
+        },
+        text: 'I am a TypeWriter 2',
+      },
+    ]
   },
+
   {
-    title: 'Eu sou um titulo 3',
-    subtitle: 'Eu sou um subtitulo 3',
-    footer: 'Eu sou um footer 3',
+    start: 600,
+    duration: 600, // number / 60
+    content: [
+      {
+        type: 'translate_x_from_left_to_right',
+        customStyle: {
+          marginTop: -960
+        },
+        text: 'A Memel é favorita!!!'
+      },
+  
+      {
+        type: 'translate_x_from_right_to_left',
+        customStyle: {
+          marginTop: 960
+        },
+        text: 'A Kiki é miau miga!!'
+      },
+  
+      {
+        type: 'typewriter',
+        customStyle: {
+          fontSize: 60,
+          color: '#A5F',
+          textAlign: 'center',
+        },
+        text: 'A bolinha é baleiudinha <3',
+      },
+    ]
   },
+  
 ]
 
 export default data
