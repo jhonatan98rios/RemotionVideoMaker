@@ -2,7 +2,7 @@ import React from 'react';
 import { Sequence, useVideoConfig } from 'remotion';
 import { HCenter } from '../Components/HCenter';
 import { VCenter } from '../Components/VCenter';
-import { TypeWriter } from '../Components/TypeWriter';
+import { SplittedText } from '../Components/SplittedText';
 
 
 interface I {
@@ -10,7 +10,7 @@ interface I {
   customStyle:object,
 }
 
-export const TypeWriterPartial: React.FC<I> = ({ text, customStyle }) => {
+export const SplittedTextPartial: React.FC<I> = ({ text, customStyle }) => {
   
   const videoConfig = useVideoConfig();
   const transitionStart = 0;
@@ -19,8 +19,9 @@ export const TypeWriterPartial: React.FC<I> = ({ text, customStyle }) => {
     <Sequence from={transitionStart}>
       <HCenter>
         <VCenter>
-          <TypeWriter
-            value={text}
+          <SplittedText
+            titleText={text}
+            duration={5}
             customStyle={customStyle}
           />
         </VCenter>

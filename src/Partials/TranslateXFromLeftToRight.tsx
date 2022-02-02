@@ -13,10 +13,10 @@ interface I {
 export const TranslateXFromLeftToRight: React.FC<I> = ({ text, customStyle }) => {
 
   const videoConfig = useVideoConfig();
-  const transitionStart = 10;
+  const transitionStart = 0;
 
   return (
-    <Sequence from={transitionStart + 90}>
+    <Sequence from={transitionStart}>
       <HCenter>
         <VCenter>
           <Translate

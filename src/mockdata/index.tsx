@@ -52,7 +52,7 @@ const data = [
       },
   
       {
-        type: 'typewriter',
+        type: 'splitted_text',
         customStyle: {
           fontSize: 60,
           color: '#A5F',
